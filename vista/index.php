@@ -1,30 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../vista/styles.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Copse&family=Jersey+10&family=Lexend:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&family=Roboto&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <title>GZZ</title>
+<?php
+include 'inicio.html';
+?>
+<title>GZZ</title>
 </head>
 
 <body>
@@ -48,7 +25,16 @@
 
         <div class="funciones d-flex">
             <div class="icono">
-                <img src="../vista/img/pixelarticons_user.png" alt="">
+                <div class="dropdown" style="margin-right: 50px;">
+                    <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../vista/img/pixelarticons_user.png" alt="">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="login.php">Inicia Sesión</a></li>
+                        <li><a class="dropdown-item" href="registro.php">Resgístrate</a></li>
+                    </ul>
+                </div>
+
             </div>
             <div class="icono">
                 <img src="../vista/img/memory_cart.png" alt="">
@@ -77,8 +63,10 @@
                 <div class="carousel-item active">
                     <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                    <div style="background-color: rgba(0, 0, 0, 0.438);">
+                        <h5>Zenless Zone Zero</h5>
+                        <p>Colección ya disponible</p>
+                    </div>    
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -257,7 +245,7 @@
 
         </div>
 
-        <div class="footer"> 
+        <div class="footer">
 
             <div class="apartado a1">
                 Geek Zone Zero
