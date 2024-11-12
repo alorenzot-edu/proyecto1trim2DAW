@@ -1,5 +1,6 @@
 <?php
 include '../config/autocarga.php';
+include '../vista/index.php';
 $base = new Bd();
 $clientes = Cliente::getAll($base->link);
 while($fila=$clientes->fetch(PDO::FETCH_ASSOC)){
