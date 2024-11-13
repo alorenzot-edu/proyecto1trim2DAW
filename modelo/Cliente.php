@@ -17,7 +17,7 @@ class Cliente
 			}
 			catch(PDOException $e){
 				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vistas/mensaje.php";
+ 				require "../vista/mensaje.php";
  				die();
  			}
 		}
@@ -26,31 +26,31 @@ class Cliente
 			$this->nombre=$nombre;
 			$this->direccion=$direccion;
 			$this->email=$email;
-			$this->pwd=$pwd;
+			$this->pwd=password_hash($pwd, PASSWORD_DEFAULT);
 		}
 		function buscar ($link){
 			try{
-				$consulta="SELECT * FROM clientes where dniCliente='$this->dniCliente'";
+				$consulta="SELECT * FROM clientes where email='$this->email'";
 				$result=$link->prepare($consulta);
 				$result->execute();
 				return $result->fetch(PDO::FETCH_ASSOC);
 			}
 			catch(PDOException $e){
 				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vistas/mensaje.php";
+ 				require "../vista/mensaje.php";
  				die();
  			}
 		}
 		function validar ($link){
 			try{
 				$cli=$this->buscar($link);
-                if (password_verify($this->pwd,$cli['pwd']))
+                if (password_verify($cli['pwd'],$this->pwd))
 				    return $cli;
                 else return false;
 			}
 			catch(PDOException $e){
 				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vistas/mensaje.php";
+ 				require "../vista/mensaje.php";
  				die();
  			}
 		}
@@ -73,7 +73,7 @@ class Cliente
 			}
 			catch(PDOException $e){
 				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vistas/mensaje.php";
+ 				require "../vista/mensaje.php";
  				die();
  			}
 		}
@@ -85,7 +85,7 @@ class Cliente
 			}
 			catch(PDOException $e){
 				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vistas/mensaje.php";
+ 				require "../vista/mensaje.php";
  				die();
  			}
 		}
@@ -97,7 +97,7 @@ class Cliente
 			}
 			catch(PDOException $e){
 				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vistas/mensaje.php";
+ 				require "../vista/mensaje.php";
  				die();
  			}
 		}

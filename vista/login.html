@@ -1,24 +1,35 @@
 <div class="contenedorGeneral">
 
-    <div class="area">
+    <div class="area"><!--Necesario para el fondo animado-->
 
         <div class="caja ">
             <h1 style="font-family: 'jersey 10';">INICIANDO SESIÓN</h1>
             <form class="px-4 py-3" method="post">
                 <div class="mb-3">
                     <label for="exampleDropdownFormEmail1" class="form-label">Correo electrónico</label>
-                    <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="correo@ejemplo.com">
+                    <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="correo@ejemplo.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleDropdownFormPassword1" class="form-label">Contraseña</label>
-                    <input name="pwd" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
+                    <input name="pwd" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" required>
                 </div>
-                <button type="submit" class="btn" style="background-color: #ff003c; color:white;" name="enviar">Enviar</button>
+
+                <button type="submit" class="btn" style="background-color: #ff003c; color:white; width: 100%;" name="enviar">INICIAR SESIÓN</button>
+
+                <div class="divider d-flex align-items-center my-4">
+                    <p class="fw-bold mx-3 mb-0 text-muted">O también:</p>
+                  </div>
+        
+                  <a data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998; width: 100%;" href="#!"
+                    role="button">
+                    <i class="fab fa-facebook-f me-2"></i>Continúa con Google
+                  </a>
             </form>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="registro.php">¿Nuevo por aquí? Regístrate</a>
         </div>
 
+        <!--Necesario para el fondo animado-->
         <ul class="circles">
             <li></li>
             <li></li>

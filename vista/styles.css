@@ -203,7 +203,7 @@ img{
 
 /*Animación del login*/
 .area{
-    background: #ac0028;  
+    background: rgb(0, 0, 0);  
     width: 100vw;
     height:100vh;
     display: flex;
@@ -231,7 +231,7 @@ img{
     background: #ff003c;
     animation: animate 25s linear infinite;
     bottom: -150px;
-    background-color: rgba(0, 0, 0, 0.438);
+    background-color: #ff003c;
 }
 
 .circles li:nth-child(1){

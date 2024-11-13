@@ -28,10 +28,15 @@ include 'inicio.html';
                 <div class="dropdown" style="margin-right: 50px;">
                     <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="../vista/img/pixelarticons_user.png" alt="">
-                    </button>
+                    </button>     
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="login.php">Inicia Sesión</a></li>
+                        <?if(!isset($_SESSION['nombre'])){?>
+                        <li><a class="dropdown-item" href="validar.php">Inicia Sesión</a></li>
                         <li><a class="dropdown-item" href="registro.php">Resgístrate</a></li>
+                        <?} else {?>
+                        <li class="dropdown-item">Usuario: <?echo $_SESSION['nombre']?></li>
+                        <li><a class="dropdown-item" href="salir.php">Cerrar Sesión</a></li>
+                        <?}?>
                     </ul>
                 </div>
 
@@ -63,35 +68,39 @@ include 'inicio.html';
                 <div class="carousel-item active">
                     <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-md-block">
-                    <div style="background-color: rgba(0, 0, 0, 0.438);">
+                    <div style="background-color: #ff003c; width:200px;">
                         <h5>Zenless Zone Zero</h5>
                         <p>Colección ya disponible</p>
                     </div>    
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
+                <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                    <div style="background-color: #ff003c; width:200px;">
+                        <h5>Zenless Zone Zero</h5>
+                        <p>Colección ya disponible</p>
+                    </div>    
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
+                <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                    <div style="background-color: #ff003c; width:200px;">
+                        <h5>Zenless Zone Zero</h5>
+                        <p>Colección ya disponible</p>
+                    </div>    
                     </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span style="background-color: black; height: 100px;"  class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span style="background-color: black; height: 100px;"  class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>

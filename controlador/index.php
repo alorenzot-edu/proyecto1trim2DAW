@@ -1,4 +1,5 @@
 <?php
+session_start(); //Indicamos que vamos a usar sesiones
 include '../config/autocarga.php';
 include '../vista/index.php';
 $base = new Bd();
