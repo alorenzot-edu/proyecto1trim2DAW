@@ -71,7 +71,7 @@ class Carrito
 		}
 		function modificar ($link){
 			try{
-				$consulta="UPDATE carrito SET idCarrito='$this->idCarrito',  idProducto='$this->idProducto',  unidades='$this->unidades', precio='$this->precio*$this->unidades' WHERE idCarrito='$this->idCarrito'";
+				$consulta="UPDATE carrito SET idCarrito='$this->idCarrito',  idProducto='$this->idProducto',  unidades='$this->unidades', precio='$this->precio' WHERE idCarrito='$this->idCarrito'";
 				$result=$link->prepare($consulta);
 				return $result->execute();
 			}

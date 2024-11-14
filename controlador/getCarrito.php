@@ -1,7 +1,10 @@
 <?
+
+use function PHPSTORM_META\type;
+
 include '../config/autocarga.php';
 $bd = new Bd();
-//Vamos a enviar por json los productos a mostrar
+//Vamos a enviar por json el carrito
 $carrito = Carrito::getAll($bd->link);
 $array = array();
 while($fila=$carrito->fetch(PDO::FETCH_ASSOC)){

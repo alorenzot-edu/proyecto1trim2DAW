@@ -10,10 +10,10 @@ class Producto
 	function buscar($link)
 	{
 		try {
-			$consulta = "SELECT * FROM productos where idProducto='$this->idProducto'";
+			$consulta = "SELECT * FROM productos where idProducto=$this->idProducto";
 			$result = $link->prepare($consulta);
 			$result->execute();
-			return $result->fetch(PDO::FETCH_ASSOC);
+			return $result;
 		} catch (PDOException $e) {
 			$dato = "¡Error!: " . $e->getMessage() . "<br/>";
 			return $dato;

@@ -1,6 +1,7 @@
 const contenedoresProductos = document.getElementsByClassName("contenedorProductos");
 //Para los productos destacados
-fetch('http://192.168.1.70/LorenzoToledoAlejandro1T/controlador/getProductos.php')
+let ip = "192.168.1.70"
+fetch('http://'+ip+'/LorenzoToledoAlejandro1T/controlador/getProductos.php')
 .then(res => res.json())
 .then(data => {
     console.log("Productos", data);
