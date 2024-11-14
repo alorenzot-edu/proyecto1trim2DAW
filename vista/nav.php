@@ -32,7 +32,7 @@
 
         </div>
         <div class="icono">
-            <img src="../vista/img/memory_cart.png" alt="">
+            <a href="verCarrito.php"><img src="../vista/img/memory_cart.png" alt=""></a>
         </div>
         <div class="icono">
             <img src="../vista/img/carbon_ibm-watson-language-translator.png" alt="">
