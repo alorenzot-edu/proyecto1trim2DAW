@@ -21,4 +21,5 @@ while($fila=$productos->fetch(PDO::FETCH_ASSOC)){
 	echo "unidades: ".$fila['unidades']."<br/>";
 	echo "precio: ".$fila['precio']."<br/>";
 }
+$bd=NULL;
 

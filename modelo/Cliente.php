@@ -26,7 +26,7 @@ class Cliente
 			$this->nombre=$nombre;
 			$this->direccion=$direccion;
 			$this->email=$email;
-			$this->pwd=password_hash($pwd, PASSWORD_DEFAULT);
+			$this->pwd=$pwd;
 		}
 		function buscar ($link){
 			try{
@@ -44,7 +44,7 @@ class Cliente
 		function validar ($link){
 			try{
 				$cli=$this->buscar($link);
-                if (password_verify($cli['pwd'],$this->pwd))
+                if (password_verify($this->pwd,$cli['pwd']))
 				    return $cli;
                 else return false;
 			}
@@ -56,7 +56,7 @@ class Cliente
 		}
 		function insertar ($link){
 			try{
-				$consulta="INSERT INTO clientes VALUES (:dniCliente,:nombre,:direccion,:email,:pwd,0)";
+				$consulta="INSERT INTO clientes VALUES (:dniCliente,:nombre,:direccion,:email,:pwd)";
 				$result=$link->prepare($consulta);
 				$result->bindParam(':dniCliente',$dniCliente);
 				$result->bindParam(':nombre',$nombre);

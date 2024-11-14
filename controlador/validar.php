@@ -1,5 +1,5 @@
 <?php
-include '../vista/inicio.html';
+require '../vista/inicio.html';
 if (isset($_POST['enviar'])) {
     //Opciones de usuario con sesion
     echo $_POST['email'];
@@ -15,12 +15,13 @@ if (isset($_POST['enviar'])) {
         $cliente = $clienteAux->buscar($bd->link);
         session_start();
         $_SESSION['nombre'] = $cliente['nombre'];
-        $_SESSION['dni'] = $cliente['dniCliente'];     
+        $_SESSION['dni'] = $cliente['dniCliente'];   
         header("Location: index.php");
     } else {
         //Si llegamos aquí, las credenciales son incorrectas
         include "../vista/credencialesIncorrectas.html";
     }
+    $bd=NULL;  
 } else {
     //Opciones de usuario sin sesion
     require '../vista/login.html';

@@ -1,13 +1,16 @@
+
+
+
+
 <div class="contenedorGeneral">
 
     <div class="area"><!--Necesario para el fondo animado-->
 
         <div class="caja ">
-            <h1 style="font-family: 'jersey 10';">CREDENCIALES INCORRECTAS</h1>
-            <p>Ups... Las credenciales que has introducido no son correctas.</p>
-            <a class="btn" style="background-color: #ff003c; color:white; width: 100%;" href="validar.php">Volver a intentarlo</a><br>
-            <a href="registro.php">¿No tienes cuenta? Regístrate</a><br>
-            <a href="../controlador/index.php">Volver al inicio</a>
+            <h1 style="font-family: 'jersey 10';">TODO HA IDO BIEN</h1>
+            <p>Bienvenido <?$_SESSION['nombre']?></p>
+            <a class="btn" style="background-color: #ff003c; color:white; width: 100%;" href="../controlador/index.php">Inicio</a><br>
+            
         </div>
 
         <!--Necesario para el fondo animado-->
