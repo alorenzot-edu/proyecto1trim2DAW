@@ -134,7 +134,7 @@ class Carrito
  			}
 		}
 
-		function borrarProducto ($link, $idProducto){
+		function borrarProducto ($link){
 			try{
 				$consulta="DELETE FROM carrito where idCarrito='$this->idCarrito' and idProducto='$this->idProducto'";
 				$result=$link->prepare($consulta);

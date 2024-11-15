@@ -2,9 +2,16 @@
 require '../config/autocarga.php';
 session_start();
 $idCarrito = $_SESSION['idUnico'];
-$idProducto = $_GET['idProducto'];
-
+$carrito;
 $bd = new Bd();
-$carrito = new Carrito($idCarrito,$idProducto,'','','');
-$carrito->borrar($bd->link);
+
+if(isset($_GET['idProducto'])){
+    $idProducto = $_GET['idProducto'];
+    $carrito = new Carrito($idCarrito,$idProducto,'','','');
+    $carrito->borrarProducto($bd->link);
+} else{
+    $carrito = new Carrito($idCarrito,'','','','');
+    $carrito->borrar($bd->link);
+}
+
 header("Location: verCarrito.php");
