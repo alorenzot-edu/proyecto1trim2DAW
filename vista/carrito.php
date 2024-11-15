@@ -19,7 +19,9 @@
         </div>
         <div id="pago" class="card col-10">
           <div class="card-body">
+          <a style="text-decoration: none; color:white;" href="confirmar.php">
             <button style="background-color: #ff003c; border: none; color: white;" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg  w-100">Proceder al pago</button>
+          </a>
           </div>
         </div>
       </div>

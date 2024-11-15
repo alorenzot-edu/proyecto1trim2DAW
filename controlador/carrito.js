@@ -71,8 +71,6 @@ function construirInyectable(dataCarrito) {
                 img.src = "../img/" + data.foto;
                 title.textContent = data.nombre; 
                 brand.innerHTML = '<span class="text-muted">Marca: </span>' + data.marca;
-    
-    
             })
             .catch((error) => console.error("Error al obtener los productos:", error));
     

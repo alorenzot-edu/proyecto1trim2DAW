@@ -190,6 +190,11 @@ img{
     font-size: 16px;
 }
 
+#resumenPedido{
+    max-height: 400px;
+    overflow-y: auto;
+}
+
 @media (max-width: 768px){
     .responsive{
         visibility:collapse;

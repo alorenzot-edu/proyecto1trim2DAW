@@ -123,7 +123,7 @@ class Carrito
 		}
 		function borrar ($link){
 			try{
-				$consulta="DELETE FROM carrito where idCarrito='$this->idCarrito' and idProducto='$this->idProducto'";
+				$consulta="DELETE FROM carrito where idCarrito='$this->idCarrito'";
 				$result=$link->prepare($consulta);
 				return $result->execute();
 			}
