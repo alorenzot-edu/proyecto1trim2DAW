@@ -1,6 +1,6 @@
 <nav>
 
-    <div class="logo">GZZ</div>
+    <div class="logo"><a style="color:white; text-decoration: none;" href="index.php">GZZ</a></div>
 
     <div class="categorias d-flex justify-content-center">
         <div class="iconoPequeño"><img src="../vista/img/ri_menu-5-fill.png" alt=""></div>

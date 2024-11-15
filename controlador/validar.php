@@ -15,10 +15,7 @@ if (isset($_POST['enviar'])) {
         $cliente = $clienteAux->buscar($bd->link);
         session_start();
         $_SESSION['nombre'] = $cliente['nombre'];
-        $_SESSION['dni'] = $cliente['dniCliente']; 
-        if(!isset($_SESSION['idUnico'])){
-            $_SESSION['idUnico'] = uniqid();
-        }        
+        $_SESSION['dni'] = $cliente['dniCliente'];         
         header("Location: index.php");
     } else {
         //Si llegamos aquí, las credenciales son incorrectas

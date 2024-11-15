@@ -39,6 +39,8 @@ function construirInyectable(seccion, data){
         divAnyadir = document.createElement("div");
         divAnyadir.classList.add("anyadir", "d-flex");
 
+        aEnlaceAnyadir = document.createElement("a");
+        aEnlaceAnyadir.href = "anyadir.php?idProducto=" + data[i].idProducto + "&precio=" + data[i].precio;
         divIcono = document.createElement("div");
         imgCarrito = document.createElement("img");
         imgCarrito.classList.add("iconoPequeño");
@@ -53,9 +55,10 @@ function construirInyectable(seccion, data){
         divIcono.append(imgCarrito)
         divAnyadir.append(divIcono)
         divAnyadir.append(divTextoAnyadir)
+        aEnlaceAnyadir.append(divAnyadir);
         divProducto.append(imgFoto);
         divProducto.append(divCont);
-        divProducto.append(divAnyadir);
+        divProducto.append(aEnlaceAnyadir);
 
         contenedoresProductos[seccion].append(divProducto);
 

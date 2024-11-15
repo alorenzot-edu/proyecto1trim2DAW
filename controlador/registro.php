@@ -15,9 +15,6 @@ if (isset($_POST['enviar'])) {
             session_start();
             $_SESSION['nombre'] = $_POST['nombre'];
             $_SESSION['dni'] = $_POST['dniCliente'];
-            if(!isset($_SESSION['idUnico'])){
-                $_SESSION['idUnico'] = uniqid();
-            }
             require "../vista/exito.php";
         }
         $bd = NULL;

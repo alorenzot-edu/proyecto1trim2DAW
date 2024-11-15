@@ -1,4 +1,4 @@
 <?
 require '../vista/inicio.html';
 require '../vista/nav.php';
-require '../vista/carrito.html';
+require '../vista/carrito.php';
