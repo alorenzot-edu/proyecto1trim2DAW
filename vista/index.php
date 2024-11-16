@@ -30,20 +30,20 @@ include 'inicio.html';
                     </div>
                 </div>
                 <div class="carousel-item">
-                <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
+                <img src="../vista/img/ataque a los titanes.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-md-block">
-                    <div style="background-color: #ff003c; width:200px;">
-                        <h5>Zenless Zone Zero</h5>
-                        <p>Colección ya disponible</p>
+                    <div style="background-color: black; width:200px;">
+                        <h5>Ataque a los Titanes</h5>
+                        <p>Descubre todos los productos</p>
                     </div>    
                     </div>
                 </div>
                 <div class="carousel-item">
-                <img src="../vista/img/zzzposter.png" class="d-block w-100" alt="...">
+                <img src="../vista/img/fortnite.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-md-block">
-                    <div style="background-color: #ff003c; width:200px;">
-                        <h5>Zenless Zone Zero</h5>
-                        <p>Colección ya disponible</p>
+                    <div style="background-color: black; width:200px;">
+                        <h5>Fortnite</h5>
+                        <p>¿Dónde caemos?</p>
                     </div>    
                     </div>
                 </div>

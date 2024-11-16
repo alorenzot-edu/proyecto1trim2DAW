@@ -11,7 +11,7 @@
         <script src="confirmar.js"></script>
         
         <div>Envío +4€</div>
-        <div id="precioFinal">Precio final</div>
+        <div style="font-weight: bold;" id="precioFinal">Precio final</div>
 
         <br>
         <h4>Introduce tus datos</h4>

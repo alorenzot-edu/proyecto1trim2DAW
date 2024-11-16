@@ -4,7 +4,7 @@
 
     <div class="categorias d-flex justify-content-center">
         <div class="iconoPequeño"><img src="../vista/img/ri_menu-5-fill.png" alt=""></div>
-        <div class="texto blanco responsive">Todas las categorías</div>
+        <a style="text-decoration: none;" href="productos.php"><div class="texto blanco responsive">Todos los productos</div></a>
         <!--Desplegable de categorias-->
     </div>
 
@@ -33,9 +33,6 @@
         </div>
         <div class="icono">
             <a href="verCarrito.php"><img src="../vista/img/memory_cart.png" alt=""></a>
-        </div>
-        <div class="icono">
-            <img src="../vista/img/carbon_ibm-watson-language-translator.png" alt="">
         </div>
     </div>
 

@@ -9,6 +9,9 @@ if(isset($_SESSION['dni'])){
 }
 $bd = new Bd();
 $unidades = 1;
+if(isset($_GET['unidades'])){
+    $unidades = $_GET['unidades'];
+}
 $carrito = new Carrito($_SESSION['idUnico'],$idProducto,$unidades,$precio,$dni);
 if($carrito->buscarProducto($bd->link)){
     $carrito->sumarProducto($bd->link);

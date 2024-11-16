@@ -1,9 +1,6 @@
 <?php
 require '../vista/inicio.html';
 if (isset($_POST['enviar'])) {
-    //Opciones de usuario con sesion
-    echo $_POST['email'];
-    echo $_POST['pwd'];
     include "../config/autocarga.php";
     $bd = new Bd();
     //Verificamos si el usuario introducido se encuentra en la base de datos, y si es así, se le iniciará sesión
@@ -23,6 +20,5 @@ if (isset($_POST['enviar'])) {
     }
     $bd=NULL;  
 } else {
-    //Opciones de usuario sin sesion
     require '../vista/login.html';
 }
