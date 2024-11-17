@@ -22,7 +22,6 @@
                 <ul class="dropdown-menu">
                     <?if(!isset($_SESSION['nombre'])){?>
                     <li><a class="dropdown-item" href="validar.php">Inicia Sesión</a></li>
-                    <li><a class="dropdown-item" href="registro.php">Resgístrate</a></li>
                     <?} else {?>
                     <li class="dropdown-item">Usuario: <?echo $_SESSION['nombre']?></li>
                     <li><a class="dropdown-item" href="salir.php">Cerrar Sesión</a></li>

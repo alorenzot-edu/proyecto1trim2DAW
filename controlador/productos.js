@@ -14,7 +14,7 @@ fetch('http://'+ip+'/LorenzoToledoAlejandro1T/controlador/getProductos.php')
 
 function construirInyectable(seccion, data){
 
-    for (let i = 0; i < 5 && i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         divProducto = document.createElement("div");
         divProducto.classList.add("producto");
 
@@ -24,6 +24,7 @@ function construirInyectable(seccion, data){
 
         imgFoto = document.createElement("img");
         imgFoto.src = "../img/" + data[i].foto;
+        imgFoto.style = "max-width: 200px; max-height: 200px;"
 
         divCont = document.createElement("div");
         divCont.classList.add("cont");

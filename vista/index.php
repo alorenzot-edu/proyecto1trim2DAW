@@ -1,5 +1,5 @@
 <?php
-include 'inicio.html';
+require 'inicio.html';
 ?>
 <title>GZZ</title>
 </head>
