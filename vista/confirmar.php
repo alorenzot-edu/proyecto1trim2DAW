@@ -10,8 +10,8 @@
 
         <script src="confirmar.js"></script>
         
-        <div>Envío +4€</div>
-        <div style="font-weight: bold;" id="precioFinal">Precio final</div>
+        <h5>Envío +4€</h5>
+        <h5 style="font-weight: bold;" id="precioFinal">Precio final</h5>
 
         <br>
         <h4>Introduce tus datos</h4>
@@ -23,9 +23,9 @@
             <input style="border: 1px solid gray; margin: 2px;" type="text" placeholder="Dirección" name="dirEntrega" required><br>
             <label for="nTarjeta">Nº Tarjeta</label><br>
             <input style="border: 1px solid gray; margin: 2px;" type="text" placeholder="1234 5678 9101" name="nTarjeta" required><br>
-            <button type="submit" name="pedidoConfirmado">Pagar</button>
+            <button class="btn btn-warning btn-block btn-lg  w-100" style="background-color: #ff003c; border: none; color: white;" type="submit" name="pedidoConfirmado">Pagar</button>
         </form>
-        <button><a href="verCarrito.php">Volver</a></button>
+        <a href="verCarrito.php">Cancelar y volver</a>
 
     </div>
 </div>
