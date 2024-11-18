@@ -10,15 +10,15 @@ fetch('http://'+ip+'/LorenzoToledoAlejandro1T/controlador/getCarrito.php')
 .catch(error => console.error('Error al obtener el carrito:', error));
 
 function construirInyectable(dataCarrito) { 
-    document.getElementById('mensajeVacio').innerText = "El carrito está vacío";
-    document.getElementById('pago').style = "visibility: hidden;";
-    for (let i = 0; i < dataCarrito.length; i++) {
-        let idUnico = localStorage.getItem('idUnico')
-        let idCarrito = dataCarrito[i].idCarrito;
-        if(idCarrito == idUnico){
-            document.getElementById('mensajeVacio').innerText = "";  
-            document.getElementById('pago').style = "visibility: visible;";
-      
+    document.getElementById('mensajeVacio').innerText = "El carrito está vacío";    //En primer lugar diremos que el carrito esta vacío
+    document.getElementById('pago').style = "visibility: hidden;";  //Si no hay productos en el carrito, no se podrá pagar
+    for (let i = 0; i < dataCarrito.length; i++) {  //Si hemos llegado aquí significa que el carrito no está vacío
+        let idUnico = localStorage.getItem('idUnico');  //Recogemos el idUnico de la variable en php
+        let idCarrito = dataCarrito[i].idCarrito;       //Recogemos el idCarrito de la base de datos
+        if(idCarrito == idUnico){                       //Si estos coinciden, mostraremos el producto
+            document.getElementById('mensajeVacio').innerText = "";  //Y por tanto retiramos el mensaje de vacío
+            document.getElementById('pago').style = "visibility: visible;"; //Ahora se puede pagar
+            //Ahora se monta toda la estructura
             const card = document.createElement("div");
             card.classList.add("card", "rounded-3", "mb-4");
     
@@ -65,6 +65,7 @@ function construirInyectable(dataCarrito) {
             deleteIcon.classList.add("fas", "fa-trash", "fa-lg");
             deleteIcon.innerText = "Borrar";
     
+            //Hacemos otro fetch para obtener los datos faltantes del producto
             fetch("http://" + ip + "/LorenzoToledoAlejandro1T/controlador/getProductos.php?id="+parseInt(dataCarrito[i].idProducto))
             .then((res) => res.json())
             .then((data) => {

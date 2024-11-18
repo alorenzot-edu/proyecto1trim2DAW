@@ -1,5 +1,4 @@
 const contenedoresProductos = document.getElementsByClassName("contenedorProductos");
-//Para los productos destacados
 //let ip = "192.168.1.70"
 let ip = "localhost"
 fetch('http://'+ip+'/LorenzoToledoAlejandro1T/controlador/getProductos.php')

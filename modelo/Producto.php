@@ -7,6 +7,14 @@ class Producto
 	{
 		$this->idProducto = $idProducto;
 	}
+	
+	static function getAll($link)
+	{
+		$consulta = $link->prepare("SELECT * FROM productos");
+		$consulta->execute();
+		return $consulta;
+	}
+
 	function buscar($link)
 	{
 		try {
@@ -16,14 +24,8 @@ class Producto
 			return $result;
 		} catch (PDOException $e) {
 			$dato = "¡Error!: " . $e->getMessage() . "<br/>";
-			return $dato;
+ 			require "../vista/mensaje.php";
 			die();
 		}
-	}
-	static function getAll($link)
-	{
-		$consulta = $link->prepare("SELECT * FROM productos");
-		$consulta->execute();
-		return $consulta;
 	}
 }

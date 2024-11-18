@@ -109,18 +109,6 @@ class Carrito
  			}
 		}
 
-		function restarProducto ($link){
-			try{
-				$consulta="UPDATE carrito SET unidades=(SELECT unidades from carrito where idCarrito='$this->idCarrito' and idCarrito='$this->idCarrito')-1 WHERE idCarrito='$this->idCarrito' and idCarrito='$this->idCarrito'";
-				$result=$link->prepare($consulta);
-				return $result->execute();
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vista/mensaje.php";
- 				die();
- 			}
-		}
 		function borrar ($link){
 			try{
 				$consulta="DELETE FROM carrito where idCarrito='$this->idCarrito'";
@@ -146,9 +134,4 @@ class Carrito
  				die();
  			}
 		}
-
-		function __get($var){
-			return $this->$var;
-		}
-	
 }

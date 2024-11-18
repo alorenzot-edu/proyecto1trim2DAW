@@ -11,12 +11,12 @@ fetch("http://" + ip + "/LorenzoToledoAlejandro1T/controlador/getCarrito.php")
 function construirInyectable(dataCarrito) {
     let precioFinal = 0;
     for (let i = 0; i < dataCarrito.length; i++) {
-        let idUnico = localStorage.getItem('idUnico')
-        let idCarrito = dataCarrito[i].idCarrito;
-        if (idCarrito == idUnico) {
+        let idUnico = localStorage.getItem('idUnico')   //Recogemos el idUnico de la variable en php
+        let idCarrito = dataCarrito[i].idCarrito;       //Recogemos el idCarrito de la base de datos
+        if (idCarrito == idUnico) {                     //Si estos coinciden, mostraremos el producto
             const cuerpoTarjeta = document.createElement("div");
             cuerpoTarjeta.classList.add("card-body", "p-4");
-
+            //Ahora se monta toda la estructura
             const fila = document.createElement("div");
             fila.classList.add(
                 "row",
@@ -63,7 +63,7 @@ function construirInyectable(dataCarrito) {
 
             auxId.innerHTML+=("<input name='unidades[]' value='" + dataCarrito[i].unidades + "'>");
 
-
+            //Hacemos otro fetch para obtener los datos faltantes del producto
             fetch("http://" + ip + "/LorenzoToledoAlejandro1T/controlador/getProductos.php?id="+parseInt(dataCarrito[i].idProducto))
             .then((res) => res.json())
             .then((data) => {

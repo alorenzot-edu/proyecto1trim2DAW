@@ -2,7 +2,7 @@
 
     <div class="caja col-9">
         <h4>Resumen</h4>
-        <form method="post">
+        <form action="" method="post">
         <div id="resumenPedido">
 
             
@@ -29,3 +29,4 @@
 
     </div>
 </div>
+

@@ -76,33 +76,5 @@ class Cliente
  				require "../vista/mensaje.php";
  				die();
  			}
-		}
-		function modificar ($link){
-			try{
-				$consulta="UPDATE clientes SET nombre='$this->nombre',  direccion='$this->direccion',  email='$this->email', pwd='$this->pwd' WHERE dniCliente='$this->dniCliente'";
-				$result=$link->prepare($consulta);
-				return $result->execute();
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vista/mensaje.php";
- 				die();
- 			}
-		}
-		function borrar ($link){
-			try{
-				$consulta="DELETE FROM clientes where dniCliente='$this->dniCliente'";
-				$result=$link->prepare($consulta);
-				return $result->execute();
-			}
-			catch(PDOException $e){
-				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
- 				require "../vista/mensaje.php";
- 				die();
- 			}
-		}
-		function __get($var){
-			return $this->$var;
-		}
-	
+		}	
 }
