@@ -1,4 +1,5 @@
-let ip = "192.168.1.70";
+//let ip = "192.168.1.70"
+let ip = "localhost"
 fetch("http://" + ip + "/LorenzoToledoAlejandro1T/controlador/getProductos.php?id="+localStorage.getItem('idProductoDetalle'))
     .then((res) => res.json())
     .then((data) => {
