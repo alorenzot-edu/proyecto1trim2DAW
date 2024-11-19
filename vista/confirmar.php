@@ -16,13 +16,13 @@
         <br>
         <h4>Introduce tus datos</h4>
             <label for="nombre">Nombre</label><br>
-            <input style="border: 1px solid gray; margin: 2px;" type="text" placeholder="Nombre" value="<? echo $_SESSION['nombre'] ?>" required><br>
+            <input class="inputPago" type="text" placeholder="Nombre" value="<? echo $_SESSION['nombre'] ?>" required><br>
             <label for="DNI">DNI</label><br>
-            <input style="border: 1px solid gray; margin: 2px;" type="text" placeholder="DNI" value="<? echo $_SESSION['dni'] ?>" required><br>
+            <input class="inputPago" type="text" placeholder="DNI" value="<? echo $_SESSION['dni'] ?>" required><br>
             <label for="dirEntrega">Dirección de entrega</label><br>
-            <input style="border: 1px solid gray; margin: 2px;" type="text" placeholder="Dirección" name="dirEntrega" required><br>
+            <input class="inputPago" type="text" placeholder="Dirección" name="dirEntrega" required><br>
             <label for="nTarjeta">Nº Tarjeta</label><br>
-            <input style="border: 1px solid gray; margin: 2px;" type="text" placeholder="1234 5678 9101" name="nTarjeta" required><br>
+            <input class="inputPago" type="text" placeholder="1234 5678 9101" name="nTarjeta" required><br>
             <button class="btn btn-warning btn-block btn-lg  w-100" style="background-color: #ff003c; border: none; color: white;" type="submit" name="pedidoConfirmado">Pagar</button>
         </form>
         <a href="verCarrito.php">Cancelar y volver</a>

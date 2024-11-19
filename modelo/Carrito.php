@@ -45,6 +45,20 @@ class Carrito
  			}
 		}
 
+		function buscarPorProducto($link){
+			try{
+				$consulta="SELECT * FROM carrito where idCarrito='$this->idCarrito' and idProducto='$this->idProducto'";
+				$result=$link->prepare($consulta);
+				$result->execute();
+				return $result->fetch(PDO::FETCH_ASSOC);
+			}
+			catch(PDOException $e){
+				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+ 				require "../vista/mensaje.php";
+ 				die();
+ 			}
+		}
+
 		function buscarProducto ($link){
 			try{
 				$consulta="SELECT idProducto FROM carrito where idCarrito='$this->idCarrito' and idProducto='$this->idProducto'";
@@ -85,7 +99,22 @@ class Carrito
 		}
 		function modificar ($link){
 			try{
-				$consulta="UPDATE carrito SET idCarrito='$this->idCarrito',  idProducto='$this->idProducto',  unidades='$this->unidades', precio='$this->precio' WHERE idCarrito='$this->idCarrito'";
+				$consulta="UPDATE carrito SET idCarrito='$this->idCarrito',  idProducto='$this->idProducto',  unidades='$this->unidades', precio='$this->precio' WHERE idCarrito='$this->idCarrito' and idProducto ='$this->idProducto'";
+				$result=$link->prepare($consulta);
+				return $result->execute();
+			}
+			catch(PDOException $e){
+				$dato= "¡Error!: " . $e->getMessage() . "<br/>";
+ 				require "../vista/mensaje.php";
+ 				die();
+ 			}
+		}
+
+		function modificarUnidades ($link, $unidades, $precio){
+			$unidades = $this->unidades + $unidades;
+			$precio = $this->precio + $precio;
+			try{
+				$consulta="UPDATE carrito SET unidades='$unidades', precio='$precio' WHERE idCarrito='$this->idCarrito' and idProducto ='$this->idProducto'";
 				$result=$link->prepare($consulta);
 				return $result->execute();
 			}

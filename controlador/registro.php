@@ -25,3 +25,6 @@ if (isset($_POST['enviar'])) {  //Si el usuario ha enviado sus datos por el form
 } else {
     require '../vista/registro.html';
 }
+
+
+$consulta=json_decode(file_get_contents("http://$ip/LorenzoToledoAlejandro1T/Api/ServicioCliente.php"),true);

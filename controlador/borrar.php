@@ -1,17 +1,33 @@
 <?
 require '../config/autocarga.php';
-session_start(); //Indicamos que vamos a usar sesiones
-$idCarrito = $_SESSION['idUnico']; //Recogemos el idCarrito de la variable de sesion
-$carrito;
+session_start();
 $bd = new Bd();
-
-if(isset($_GET['idProducto'])){             //Si se pasa la idProducto por url
+$idCarrito = $_SESSION['idUnico']; 
+$idProducto = '';
+if(isset($_GET['idProducto'])){
     $idProducto = $_GET['idProducto'];
-    $carrito = new Carrito($idCarrito,$idProducto,'','','');
-    $carrito->borrarProducto($bd->link);    //borraremos ese producto del carrito
-} else{                                     //Si no,
-    $carrito = new Carrito($idCarrito,'','','','');
-    $carrito->borrar($bd->link);            //borraremos lel carrito
+} 
+
+$url = 'http://localhost/LorenzoToledoAlejandro1T/Api/ServicioCarrito.php';
+$data = [
+    "idCarrito" => $idCarrito,
+    "idProducto" => $idProducto
+];
+$jsonData = json_encode($data);
+$options = [
+    'http' => [
+        'method'  => 'DELETE',
+        'header'  => "Content-Type: application/json\r\n" .
+                     "Content-Length: " . strlen($jsonData) . "\r\n",
+        'content' => $jsonData
+    ]
+];
+$context  = stream_context_create($options);
+$response = file_get_contents($url, false, $context);
+if ($response === FALSE) {
+    echo 'Error al realizar la solicitud';
+} else {
+    echo 'Respuesta: ' . $response;
 }
 
 header("Location: verCarrito.php");

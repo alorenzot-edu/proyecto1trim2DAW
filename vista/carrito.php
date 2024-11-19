@@ -17,6 +17,13 @@
           <script src="../controlador/carrito.js"></script>
 
         </div>
+        
+        <div id="actualizar" class="card col-10">
+          <div class="card-body">
+            <button style="background-color: gray; border: none; color: white;" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg  w-100">Actualizar carrito</button>
+          </div>
+        </div>
+
         <div id="pago" class="card col-10">
           <div class="card-body">
           <a style="text-decoration: none; color:white;" href="confirmar.php">
@@ -24,6 +31,7 @@
           </a>
           </div>
         </div>
+        
       </div>
     </div>
   </section>

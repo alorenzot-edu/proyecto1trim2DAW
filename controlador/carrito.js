@@ -1,6 +1,6 @@
 //let ip = "192.168.1.70"
 let ip = "localhost"
-fetch('http://'+ip+'/LorenzoToledoAlejandro1T/controlador/getCarrito.php')
+fetch('http://'+ip+'/LorenzoToledoAlejandro1T/Api/ServicioCarrito.php')
 .then(res => res.json())
 .then(data => {
     console.log("Carrito", data);
@@ -9,15 +9,23 @@ fetch('http://'+ip+'/LorenzoToledoAlejandro1T/controlador/getCarrito.php')
 })
 .catch(error => console.error('Error al obtener el carrito:', error));
 
+document.getElementById('actualizar').addEventListener('click', function (){
+    //Deberia recoger todos los productosy enviarlos
+    let nuevasUnidades = document.getElementsByClassName('unidades');
+    let nuevosPrecios = document.getElementsByClassName('precios');
+},true);
+
 function construirInyectable(dataCarrito) { 
     document.getElementById('mensajeVacio').innerText = "El carrito está vacío";    //En primer lugar diremos que el carrito esta vacío
     document.getElementById('pago').style = "visibility: hidden;";  //Si no hay productos en el carrito, no se podrá pagar
+    document.getElementById('actualizar').style = "visibility: hidden;";  //Si no hay productos en el carrito, no se podrá actualizar
     for (let i = 0; i < dataCarrito.length; i++) {  //Si hemos llegado aquí significa que el carrito no está vacío
         let idUnico = localStorage.getItem('idUnico');  //Recogemos el idUnico de la variable en php
         let idCarrito = dataCarrito[i].idCarrito;       //Recogemos el idCarrito de la base de datos
         if(idCarrito == idUnico){                       //Si estos coinciden, mostraremos el producto
             document.getElementById('mensajeVacio').innerText = "";  //Y por tanto retiramos el mensaje de vacío
             document.getElementById('pago').style = "visibility: visible;"; //Ahora se puede pagar
+            document.getElementById('actualizar').style = "visibility: visible;"; //Ahora se puede actualizar
             //Ahora se monta toda la estructura
             const card = document.createElement("div");
             card.classList.add("card", "rounded-3", "mb-4");
@@ -44,17 +52,17 @@ function construirInyectable(dataCarrito) {
             const input = document.createElement("input");
             input.id = "form1";
             input.type = "number";
-            input.name = "unidades";
-            input.min = 0;
-            input.max = 10;
+            input.name = "unidades[]";
+            input.class = "unidades";
+            input.min = 1;
             input.value = dataCarrito[i].unidades;
             
     
             const colPrice = document.createElement("div");
             colPrice.classList.add("col-md-3", "col-lg-2", "col-xl-2", "offset-lg-1");
             const price = document.createElement("h5");
-            price.classList.add("mb-0");
-            price.textContent = dataCarrito[i].precio + "€/u";
+            price.classList.add("mb-0", "precios");
+            price.textContent = dataCarrito[i].precio + "€";
     
             const colDelete = document.createElement("div");
             colDelete.classList.add("col-md-1", "col-lg-1", "col-xl-1", "text-end");

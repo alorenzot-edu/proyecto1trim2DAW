@@ -76,6 +76,12 @@ input{
     border: none;
 }
 
+.inputPago{
+    width: 100%;
+    margin: 5px 0px 10px 0px;
+    border-radius: 5px;
+    border:1px solid #2f4858;
+}
 .texto{
     font-family: "Copse";
 }
@@ -193,6 +199,7 @@ img{
 #resumenPedido{
     max-height: 400px;
     overflow-y: auto;
+    overflow-x:hidden;
 }
 
 @media (max-width: 768px){
