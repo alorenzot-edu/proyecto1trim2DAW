@@ -1,5 +1,9 @@
+let idProd = [];
+let idCarr;
+let dni;
+
 //let ip = "192.168.1.70"
-let ip = "localhost"
+const ip = "localhost"
 fetch('http://'+ip+'/LorenzoToledoAlejandro1T/Api/ServicioCarrito.php')
 .then(res => res.json())
 .then(data => {
@@ -9,11 +13,7 @@ fetch('http://'+ip+'/LorenzoToledoAlejandro1T/Api/ServicioCarrito.php')
 })
 .catch(error => console.error('Error al obtener el carrito:', error));
 
-document.getElementById('actualizar').addEventListener('click', function (){
-    //Deberia recoger todos los productosy enviarlos
-    let nuevasUnidades = document.getElementsByClassName('unidades');
-    let nuevosPrecios = document.getElementsByClassName('precios');
-},true);
+
 
 function construirInyectable(dataCarrito) { 
     document.getElementById('mensajeVacio').innerText = "El carrito está vacío";    //En primer lugar diremos que el carrito esta vacío
@@ -23,6 +23,8 @@ function construirInyectable(dataCarrito) {
         let idUnico = localStorage.getItem('idUnico');  //Recogemos el idUnico de la variable en php
         let idCarrito = dataCarrito[i].idCarrito;       //Recogemos el idCarrito de la base de datos
         if(idCarrito == idUnico){                       //Si estos coinciden, mostraremos el producto
+            idCarr = idCarrito;
+            dni = dataCarrito[i].dniCliente
             document.getElementById('mensajeVacio').innerText = "";  //Y por tanto retiramos el mensaje de vacío
             document.getElementById('pago').style = "visibility: visible;"; //Ahora se puede pagar
             document.getElementById('actualizar').style = "visibility: visible;"; //Ahora se puede actualizar
@@ -50,10 +52,9 @@ function construirInyectable(dataCarrito) {
             const colQuantity = document.createElement("div");
             colQuantity.classList.add("col-md-3", "col-lg-3", "col-xl-2", "d-flex");
             const input = document.createElement("input");
-            input.id = "form1";
+            input.id = "unidades";
             input.type = "number";
             input.name = "unidades[]";
-            input.class = "unidades";
             input.min = 1;
             input.value = dataCarrito[i].unidades;
             
@@ -62,6 +63,7 @@ function construirInyectable(dataCarrito) {
             colPrice.classList.add("col-md-3", "col-lg-2", "col-xl-2", "offset-lg-1");
             const price = document.createElement("h5");
             price.classList.add("mb-0", "precios");
+            price.id = "precios"
             price.textContent = dataCarrito[i].precio + "€";
     
             const colDelete = document.createElement("div");
@@ -78,6 +80,8 @@ function construirInyectable(dataCarrito) {
             .then((res) => res.json())
             .then((data) => {
                 console.log("Producto", data);
+                let id = data.idProducto;
+                idProd.push(id);
                 img.src = "../img/" + data.foto;
                 title.textContent = data.nombre; 
                 brand.innerHTML = '<span class="text-muted">Marca: </span>' + data.marca;
@@ -112,5 +116,45 @@ function construirInyectable(dataCarrito) {
         
 
   }
+  let botonActualizar = document.getElementById("actualizar");
+  botonActualizar.addEventListener(
+    "click",
+    async () => {
+      //Deberia recoger todos los productosy enviarlos
+      let nuevasUnidades = document.querySelectorAll("#unidades");
+      for(let i = 0 ; i < nuevasUnidades.length ; i ++){
+        let unidades = (nuevasUnidades[i].value);
+        await actualizarCarrito(i, unidades);
+      }
+    },
+    true
+  );
 }
 
+async function actualizarCarrito(posicion, unidades){
+  let data = {
+        idCarrito: idCarr,
+        idProducto: parseInt(idProd[posicion]),
+        unidades: parseInt(unidades),
+        dni: dni
+    };
+    data = JSON.stringify(data)
+    await fetch('http://'+ip+'/LorenzoToledoAlejandro1T/Api/ServicioCarrito.php', {
+        method: "PUT",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body: data,
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      actualizarPrecio(data, posicion);
+    })    
+    .catch(error => console.error("Error:", error));
+
+}
+
+function actualizarPrecio(data, posicion){
+  let precios = document.querySelectorAll("#precios");
+  precios[posicion].innerText = data.precio + "€";
+}

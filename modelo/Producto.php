@@ -28,4 +28,7 @@ class Producto
 			die();
 		}
 	}
+	function __get($var){
+		return $this->$var;
+	}
 }
