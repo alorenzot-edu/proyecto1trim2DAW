@@ -76,7 +76,7 @@ function construirInyectable(dataCarrito) {
             deleteIcon.innerText = "Borrar";
     
             //Hacemos otro fetch para obtener los datos faltantes del producto
-            fetch("http://" + ip + "/LorenzoToledoAlejandro1T/controlador/getProductos.php?id="+parseInt(dataCarrito[i].idProducto))
+            fetch("http://" + ip + "/LorenzoToledoAlejandro1T/Api/ServicioProductos.php?id="+parseInt(dataCarrito[i].idProducto))
             .then((res) => res.json())
             .then((data) => {
                 console.log("Producto", data);

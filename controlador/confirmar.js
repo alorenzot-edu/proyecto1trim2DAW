@@ -1,6 +1,6 @@
 //let ip = "192.168.1.70"
 let ip = "localhost"
-fetch("http://" + ip + "/LorenzoToledoAlejandro1T/controlador/getCarrito.php")
+fetch("http://" + ip + "/LorenzoToledoAlejandro1T/Api/ServicioCarrito.php")
     .then((res) => res.json())
     .then((data) => {
         console.log("Carrito", data);
@@ -52,8 +52,8 @@ function construirInyectable(dataCarrito) {
 
             const tituloPrecio = document.createElement("h5");
             tituloPrecio.classList.add("mb-0");
-            let precio = dataCarrito[i].unidades * dataCarrito[i].precio;
-            precioFinal+=precio;
+            let precio = dataCarrito[i].precio;
+            precioFinal+=parseInt(precio);
             tituloPrecio.textContent = precio + "€";
 
             const auxId = document.createElement("span"); //Esto servirá para poder enviar la id del producto a php mediante post
@@ -64,7 +64,7 @@ function construirInyectable(dataCarrito) {
             auxId.innerHTML+=("<input name='unidades[]' value='" + dataCarrito[i].unidades + "'>");
 
             //Hacemos otro fetch para obtener los datos faltantes del producto
-            fetch("http://" + ip + "/LorenzoToledoAlejandro1T/controlador/getProductos.php?id="+parseInt(dataCarrito[i].idProducto))
+            fetch("http://" + ip + "/LorenzoToledoAlejandro1T/Api/ServicioProductos.php?id="+parseInt(dataCarrito[i].idProducto))
             .then((res) => res.json())
             .then((data) => {
                 console.log("Producto", data);
