@@ -15,7 +15,6 @@ class Linea
         $consulta = $link->prepare("SELECT * FROM lineaspedidos");
         $consulta->execute();
         return $consulta;
-        
     }
     
     function insertar($link){
